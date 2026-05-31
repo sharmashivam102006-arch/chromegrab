@@ -1,0 +1,320 @@
+/* :root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --bg-light: #f3f4f6;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  width: 350px;
+  background: #ffffff;
+  color: var(--text-dark);
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+}
+
+.picker {
+  padding: 24px 0;
+  background: var(--bg-light);
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+#color-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 10px 24px;
+  border-radius: 8px;
+  background: var(--primary);
+  transition: background 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+#color-picker:hover {
+  background: var(--primary-hover);
+}
+
+#color-picker:active {
+  transform: scale(0.97);
+}
+
+.picked-colors {
+  padding: 16px;
+}
+
+.picked-colors.hide {
+  display: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+header .title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.format-select {
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  outline: none;
+}
+
+header .clear-all {
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  transition: color 0.2s ease;
+}
+
+header .clear-all:hover {
+  color: #ef4444; 
+}
+
+.all-colors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  list-style: none;
+}
+
+.color {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.color:hover {
+  background: var(--bg-light);
+}
+
+.rect {
+  height: 24px;
+  width: 24px;
+  display: block;
+  margin-right: 8px;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+}
+
+.color span.value {
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.toast {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text-dark);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.toast.hidden {
+  opacity: 0;
+} */
+
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+  --bg-color: #f8fafc;
+  --primary-grad: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --card-bg: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: var(--bg-color);
+}
+
+.popup {
+  width: 350px;
+  background: var(--bg-color);
+}
+
+/* --- Vibrant Header Area --- */
+.popup .picker {
+  padding: 40px 0;
+  background: var(--primary-grad);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2);
+  margin-bottom: 20px;
+}
+
+/* --- Glassmorphism Button --- */
+#color-picker {
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 12px 28px;
+  border-radius: 50px; /* Pill shape */
+  background: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+#color-picker:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+#color-picker:active {
+  transform: translateY(0);
+}
+
+/* --- Color History Container --- */
+.picked-colors {
+  margin: 0 20px 20px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.picked-colors.hide {
+  display: none;
+}
+
+.picked-colors header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 12px;
+}
+
+header .title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* --- Styled Clear Button --- */
+header .clear-all {
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #ef4444;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #fee2e2;
+  transition: all 0.2s ease;
+}
+
+header .clear-all:hover {
+  background: #fca5a5;
+  color: #991b1b;
+}
+
+/* --- Color Swatch Grid --- */
+.all-colors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  list-style: none;
+}
+
+.color {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.color:hover {
+  border-color: #cbd5e1;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transform: translateY(-3px); /* Lifts the card up slightly */
+}
+
+/* --- Color Rectangle --- */
+.rect {
+  height: 36px;
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  /* An inset shadow automatically creates a subtle border for white/light colors without needing JS logic */
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1); 
+}
+
+.value {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}

@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "ChromaGrab",
+    "description": "A precise color picker and format converter for front-end developers.",
+    "version": "1.1",
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "storage"
+    ]
+}
